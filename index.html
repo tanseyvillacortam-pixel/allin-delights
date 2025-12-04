@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allin Delights - Snacks Saludables para Adolescentes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2E7D32;
+            --secondary-color: #FFC107;
+            --accent-color: #8D6E63;
+            --light-color: #F1F8E9;
+            --dark-color: #1B5E20;
+            --text-color: #333;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header y navegación */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        .logo-icon {
+            color: var(--primary-color);
+            font-size: 2rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+        
+        /* Hero section */
+        .hero {
+            background: linear-gradient(rgba(46, 125, 50, 0.8), rgba(46, 125, 50, 0.9)), url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Problemática section */
+        .problematica {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .problematica-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .problematica-item {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .problematica-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .problematica-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        /* Solución section */
+        .solucion {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .solucion-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .solucion-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .solucion-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .solucion-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Productos section */
+        .productos {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .producto-card {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            padding-bottom: 20px;
+        }
+        
+        .producto-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .producto-img {
+            height: 200px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .producto-info {
+            padding: 20px;
+        }
+        
+        .producto-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .ingredientes-list {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .precio {
+            font-weight: bold;
+            color: var(--dark-color);
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+        
+        .contador-producto {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+            gap: 10px;
+        }
+        
+        .contador-btn {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .contador-btn:hover {
+            background-color: var(--dark-color);
+        }
+        
+        .cantidad {
+            font-size: 1.3rem;
+            font-weight: bold;
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        /* Personalizador de Pedidos */
+        .personalizador {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .personalizador-container {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .pedido-intro {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .selector-pedidos {
+            margin: 30px 0;
+        }
+        
+        .seccion-pedido {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px dashed var(--light-color);
+        }
+        
+        .seccion-pedido:last-child {
+            border-bottom: none;
+        }
+        
+        .seccion-titulo {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .seccion-icon {
+            font-size: 1.8rem;
+        }
+        
+        .chocotejas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        
+        .chocoteja-option {
+            background-color: rgba(241, 248, 233, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid var(--light-color);
+            transition: all 0.3s;
+        }
+        
+        .chocoteja-option:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .sabor-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .sabor-icon {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+        }
+        
+        .pedido-summary {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 40px;
+        }
+        
+        .resumen-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #ccc;
+        }
+        
+        .total {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid var(--accent-color);
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        /* Modal de confirmación */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .modal h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .personalizador-container {
+                padding: 20px;
+            }
+            
+            .chocotejas-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .productos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-seedling logo-icon"></i>
+                <h1>Allin <span>Delights</span></h1>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#problematica">Problemática</a></li>
+                    <li><a href="#solucion">Solución</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#personalizador">Realizar Pedido</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h2>Delicias Saludables que Conectan con Nuestras Raíces</h2>
+            <p>En Moyobamba, recuperamos la sabiduría ancestral usando frutos locales para crear snacks nutritivos y deliciosos para adolescentes. Descubre el equilibrio entre sabor, salud y tradición.</p>
+            <a href="#personalizador" class="btn">Realizar Tu Pedido</a>
+        </div>
+    </section>
+
+    <!-- Problemática Section -->
+    <section class="problematica" id="problematica">
+        <div class="container">
+            <h2 class="section-title">La Problemática Identificada</h2>
+            <div class="problematica-content">
+                <div class="problematica-item">
+                    <i class="fas fa-industry problematica-icon"></i>
+                    <h3>Dependencia de Productos Industriales</h3>
+                    <p>La modernización ha reemplazado los rituales tradicionales con productos sintéticos que no respetan nuestra conexión con la naturaleza.</p>
+                </div>
+                <div class="problematica-item">
+                    <i class="fas fa-brain problematica-icon"></i>
+                    <h3>Impacto en la Salud Mental</h3>
+                    <p>El alejamiento de prácticas culturales basadas en recursos naturales afecta el bienestar emocional y el equilibrio mental de los adolescentes.</p>
+                </div>
+                <div class="problematica-item">
+                    <i class="fas fa-utensils problematica-icon"></i>
+                    <h3>Hábitos Alimenticios no Saludables</h3>
+                    <p>Los adolescentes consumen productos ultraprocesados por falta de conocimiento sobre alternativas saludables con frutas locales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solución Section -->
+    <section class="solucion" id="solucion">
+        <div class="container">
+            <h2 class="section-title">Nuestra Solución: Allin Delights</h2>
+            <div class="solucion-content">
+                <div class="solucion-text">
+                    <h3>Reconectando con lo Natural</h3>
+                    <p>Allin Delights combina la sabiduría ancestral con la innovación para crear snacks saludables y deliciosos que respetan nuestras tradiciones.</p>
+                    <p>Utilizamos frutas locales como guanábana, plátano, aguaje y mango para ofrecer alternativas nutritivas que los adolescentes realmente disfrutarán.</p>
+                    <p>Nuestro enfoque no solo rescata costumbres esenciales para el bienestar emocional, sino que también revitaliza la conexión con los recursos naturales que han sido la base del equilibrio espiritual por siglos.</p>
+                    <a href="#personalizador" class="btn" style="margin-top: 20px;">Personaliza Tu Pedido</a>
+                </div>
+                <div class="solucion-image">
+                    <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80" alt="Frutas locales de la región San Martín">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Section -->
+    <section class="productos" id="productos">
+        <div class="container">
+            <h2 class="section-title">Nuestros Productos</h2>
+            <div class="productos-grid">
+                <!-- Brownies -->
+                <div class="producto-card" data-producto="brownie" data-precio="4.5">
+                    <div class="producto-img" style="background-image: url('https://images.unsplash.com/photo-1570145820259-b5b80c5c8bd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80');"></div>
+                    <div class="producto-info">
+                        <h3>Brownies de Avena con Chocolate</h3>
+                        <p class="ingredientes-list">Ingredientes: Avena, chocolate, plátano maduro</p>
+                        <p>Deliciosos brownies hechos a mano con ingredientes seleccionados de la selva peruana.</p>
+                        <div class="precio">Precio: S/ 4.50 c/u</div>
+                        <div class="contador-producto">
+                            <button class="contador-btn decrement">-</button>
+                            <span class="cantidad" id="cantidad-brownie">0</span>
+                            <button class="contador-btn increment">+</button>
+                            <span style="margin-left: auto;">Unidades</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cupcakes -->
+                <div class="producto-card" data-producto="cupcake" data-precio="3.8">
+                    <div class="producto-img" style="background-image: url('https://images.unsplash.com/photo-1486427944299-d1955d23e34d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');"></div>
+                    <div class="producto-info">
+                        <h3>Cupcakes de Lúcuma Mix</h3>
+                        <p class="ingredientes-list">Ingredientes: Harina integral, lúcuma, frutos secos</p>
+                        <p>Esponjosos cupcakes con el sabor único de la lúcuma, hechos artesanalmente.</p>
+                        <div class="precio">Precio: S/ 3.80 c/u</div>
+                        <div class="contador-producto">
+                            <button class="contador-btn decrement">-</button>
+                            <span class="cantidad" id="cantidad-cupcake">0</span>
+                            <button class="contador-btn increment">+</button>
+                            <span style="margin-left: auto;">Unidades</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chocotejas -->
+                <div class="producto-card">
+                    <div class="producto-img" style="background-image: url('https://i.pinimg.com/736x/17/19/fe/1719feec156e25d21e5fb9cbb240bf2a.jpg');"></div>
+                    <div class="producto-info">
+                        <h3>Chocotejas de Sabores Selva</h3>
+                        <p class="ingredientes-list">Ingredientes: Chocolate, rellenos de frutas locales</p>
+                        <p>Auténticas chocotejas peruanas con rellenos de frutas de la selva. ¡Personaliza tus sabores!</p>
+                        <div class="precio">Precio: Desde S/ 2.30 c/u</div>
+                        <a href="#personalizador" class="btn" style="width: 100%; margin-top: 15px;">Personalizar Sabores</a>
+                    </div>
+                </div>
+                
+                <!-- Galletas -->
+                <div class="producto-card" data-producto="galleta" data-precio="2.0">
+                    <div class="producto-img" style="background-image: url('https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80');"></div>
+                    <div class="producto-info">
+                        <h3>Galletas Básicas</h3>
+                        <p class="ingredientes-list">Ingredientes: Harina integral, frutas locales</p>
+                        <p>Galletas crujientes hechas artesanalmente con ingredientes naturales de la región.</p>
+                        <div class="precio">Precio: S/ 2.00 c/u</div>
+                        <div class="contador-producto">
+                            <button class="contador-btn decrement">-</button>
+                            <span class="cantidad" id="cantidad-galleta">0</span>
+                            <button class="contador-btn increment">+</button>
+                            <span style="margin-left: auto;">Unidades</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personalizador de Pedidos -->
+    <section class="personalizador" id="personalizador">
+        <div class="container">
+            <h2 class="section-title">Personaliza Tu Pedido</h2>
+            <div class="personalizador-container">
+                <div class="pedido-intro">
+                    <p>Selecciona las cantidades de cada producto para tu pedido personalizado. ¡Todos nuestros productos son hechos a mano con ingredientes naturales de la selva peruana!</p>
+                </div>
+                
+                <div class="selector-pedidos">
+                    <!-- Sección Brownies -->
+                    <div class="seccion-pedido">
+                        <h3 class="seccion-titulo">
+                            <i class="fas fa-cookie seccion-icon"></i>
+                            Brownies de Avena con Chocolate
+                        </h3>
+                        <div class="contador-producto" style="max-width: 300px; margin: 0 auto;">
+                            <button class="contador-btn decrement-brownie">-</button>
+                            <span class="cantidad" id="pedido-brownie">0</span>
+                            <button class="contador-btn increment-brownie">+</button>
+                            <span style="margin-left: auto; font-weight: bold;">S/ 4.50 c/u</span>
+                        </div>
+                        <p style="text-align: center; margin-top: 10px; color: var(--accent-color);">Ingredientes: Avena, chocolate, plátano maduro</p>
+                    </div>
+                    
+                    <!-- Sección Cupcakes -->
+                    <div class="seccion-pedido">
+                        <h3 class="seccion-titulo">
+                            <i class="fas fa-birthday-cake seccion-icon"></i>
+                            Cupcakes de Lúcuma Mix
+                        </h3>
+                        <div class="contador-producto" style="max-width: 300px; margin: 0 auto;">
+                            <button class="contador-btn decrement-cupcake">-</button>
+                            <span class="cantidad" id="pedido-cupcake">0</span>
+                            <button class="contador-btn increment-cupcake">+</button>
+                            <span style="margin-left: auto; font-weight: bold;">S/ 3.80 c/u</span>
+                        </div>
+                        <p style="text-align: center; margin-top: 10px; color: var(--accent-color);">Ingredientes: Harina integral, lúcuma, frutos secos</p>
+                    </div>
+                    
+                    <!-- Sección Chocotejas -->
+                    <div class="seccion-pedido">
+                        <h3 class="seccion-titulo">
+                            <i class="fas fa-candy-cane seccion-icon"></i>
+                            Chocotejas de Sabores Selva
+                        </h3>
+                        <p style="margin-bottom: 20px;">Elige las cantidades de cada sabor:</p>
+                        
+                        <div class="chocotejas-grid">
+                            <!-- Mango -->
+                            <div class="chocoteja-option" data-sabor="mango" data-precio="2.5">
+                                <div class="sabor-header">
+                                    <i class="fas fa-apple-alt sabor-icon"></i>
+                                    <h4>Chocoteja de Mango</h4>
+                                </div>
+                                <p>Dulce de mango natural de la selva.</p>
+                                <div class="contador-producto">
+                                    <button class="contador-btn decrement-choco-mango">-</button>
+                                    <span class="cantidad" id="pedido-mango">0</span>
+                                    <button class="contador-btn increment-choco-mango">+</button>
+                                    <span style="margin-left: auto; font-weight: bold;">S/ 2.50 c/u</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Fresa -->
+                            <div class="chocoteja-option" data-sabor="fresa" data-precio="2.5">
+                                <div class="sabor-header">
+                                    <i class="fas fa-strawberry sabor-icon"></i>
+                                    <h4>Chocoteja de Fresa</h4>
+                                </div>
+                                <p>Relleno de fresa natural, ligeramente ácida y dulce.</p>
+                                <div class="contador-producto">
+                                    <button class="contador-btn decrement-choco-fresa">-</button>
+                                    <span class="cantidad" id="pedido-fresa">0</span>
+                                    <button class="contador-btn increment-choco-fresa">+</button>
+                                    <span style="margin-left: auto; font-weight: bold;">S/ 2.50 c/u</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Plátano -->
+                            <div class="chocoteja-option" data-sabor="platano" data-precio="2.3">
+                                <div class="sabor-header">
+                                    <i class="fas fa-lemon sabor-icon"></i>
+                                    <h4>Chocoteja de Plátano</h4>
+                                </div>
+                                <p>Plátano de la selva, con sabor dulce y cremoso.</p>
+                                <div class="contador-producto">
+                                    <button class="contador-btn decrement-choco-platano">-</button>
+                                    <span class="cantidad" id="pedido-platano">0</span>
+                                    <button class="contador-btn increment-choco-platano">+</button>
+                                    <span style="margin-left: auto; font-weight: bold;">S/ 2.30 c/u</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Ciruela -->
+                            <div class="chocoteja-option" data-sabor="ciruela" data-precio="2.7">
+                                <div class="sabor-header">
+                                    <i class="fas fa-seedling sabor-icon"></i>
+                                    <h4>Chocoteja de Ciruela</h4>
+                                </div>
+                                <p>Ciruela de la selva, equilibrio perfecto entre dulce y ácido.</p>
+                                <div class="contador-producto">
+                                    <button class="contador-btn decrement-choco-ciruela">-</button>
+                                    <span class="cantidad" id="pedido-ciruela">0</span>
+                                    <button class="contador-btn increment-choco-ciruela">+</button>
+                                    <span style="margin-left: auto; font-weight: bold;">S/ 2.70 c/u</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sección Galletas -->
+                    <div class="seccion-pedido">
+                        <h3 class="seccion-titulo">
+                            <i class="fas fa-cookie-bite seccion-icon"></i>
+                            Galletas Básicas
+                        </h3>
+                        <div class="contador-producto" style="max-width: 300px; margin: 0 auto;">
+                            <button class="contador-btn decrement-galleta">-</button>
+                            <span class="cantidad" id="pedido-galleta">0</span>
+                            <button class="contador-btn increment-galleta">+</button>
+                            <span style="margin-left: auto; font-weight: bold;">S/ 2.00 c/u</span>
+                        </div>
+                        <p style="text-align: center; margin-top: 10px; color: var(--accent-color);">Ingredientes: Harina integral, frutas locales</p>
+                    </div>
+                </div>
+                
+                <div class="pedido-summary">
+                    <h3>Resumen de Tu Pedido</h3>
+                    <div id="resumen-detalles">
+                        <p>Selecciona las cantidades de cada producto para ver tu pedido personalizado.</p>
+                    </div>
+                    <div id="resumen-total" class="total" style="display: none;">
+                        <span>Total:</span>
+                        <span>S/ <span id="total-pedido">0.00</span></span>
+                    </div>
+                    <button class="btn" id="btnPedido" style="margin-top: 20px; width: 100%;">Confirmar y Realizar Pedido</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de confirmación -->
+    <div class="modal-overlay" id="modalConfirmacion">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <h3>¡Pedido Confirmado!</h3>
+            <div id="modal-contenido">
+                <!-- El contenido se llena con JavaScript -->
+            </div>
+            <p style="margin-top: 20px; text-align: center; font-style: italic;">Nos comunicaremos contigo pronto para coordinar la entrega.</p>
+            <button class="btn" id="btnCerrarModal" style="margin-top: 20px; width: 100%;">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">Allin <span>Delights</span></div>
+                    <p>Snacks saludables que combinan tradición, sabor y bienestar para los adolescentes de Moyobamba.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Moyobamba, Región San Martín</p>
+                    <p><i class="fas fa-phone"></i> (042) 567890</p>
+                    <p><i class="fas fa-envelope"></i> info@allindelights.com</p>
+                </div>
+                <div>
+                    <h3>Horario de atención</h3>
+                    <p>Lunes a Viernes: 8:00 am - 6:00 pm</p>
+                    <p>Sábados: 9:00 am - 2:00 pm</p>
+                    <p>Pedidos por delivery disponibles</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Allin Delights - Equipo COAR Moyobamba. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.style.display = mainNav.style.display === 'block' ? 'none' : 'block';
+        });
+        
+        // Responsive menu adjustment
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                mainNav.style.display = '';
+            }
+        });
+        
+        // Sistema de pedidos completo
+        const modalConfirmacion = document.getElementById('modalConfirmacion');
+        const modalClose = document.getElementById('modalClose');
+        const btnCerrarModal = document.getElementById('btnCerrarModal');
+        const btnPedido = document.getElementById('btnPedido');
+        
+        // Precios por unidad de cada producto
+        const precios = {
+            brownie: 4.5,
+            cupcake: 3.8,
+            galleta: 2.0,
+            choco_mango: 2.5,
+            choco_fresa: 2.5,
+            choco_platano: 2.3,
+            choco_ciruela: 2.7
+        };
+        
+        // Inicializar cantidades (sincronizadas entre secciones)
+        let cantidades = {
+            brownie: 0,
+            cupcake: 0,
+            galleta: 0,
+            choco_mango: 0,
+            choco_fresa: 0,
+            choco_platano: 0,
+            choco_ciruela: 0
+        };
+        
+        // Función para actualizar contadores
+        function actualizarContador(producto, cambio, seccion) {
+            let nuevaCantidad = cantidades[producto] + cambio;
+            
+            // No permitir cantidades negativas
+            if (nuevaCantidad < 0) nuevaCantidad = 0;
+            
+            // Actualizar valor
+            cantidades[producto] = nuevaCantidad;
+            
+            // Actualizar visualización en ambas secciones
+            const elementos = [
+                document.getElementById(cantidad-${producto}),
+                document.getElementById(pedido-${producto})
+            ];
+            
+            elementos.forEach(elemento => {
+                if (elemento) elemento.textContent = nuevaCantidad;
+            });
+            
+            // Actualizar resumen
+            actualizarResumen();
+        }
+        
+        // Función para actualizar el resumen del pedido
+        function actualizarResumen() {
+            let total = 0;
+            let hayProductos = false;
+            let htmlResumen = '';
+            
+            // Calcular total y generar resumen para todos los productos
+            const productosInfo = [
+                {id: 'brownie', nombre: 'Brownie de Avena', precio: precios.brownie},
+                {id: 'cupcake', nombre: 'Cupcake de Lúcuma', precio: precios.cupcake},
+                {id: 'galleta', nombre: 'Galleta Básica', precio: precios.galleta},
+                {id: 'choco_mango', nombre: 'Chocoteja de Mango', precio: precios.choco_mango},
+                {id: 'choco_fresa', nombre: 'Chocoteja de Fresa', precio: precios.choco_fresa},
+                {id: 'choco_platano', nombre: 'Chocoteja de Plátano', precio: precios.choco_platano},
+                {id: 'choco_ciruela', nombre: 'Chocoteja de Ciruela', precio: precios.choco_ciruela}
+            ];
+            
+            // Calcular total y generar resumen
+            productosInfo.forEach(producto => {
+                const cantidad = cantidades[producto.id];
+                if (cantidad > 0) {
+                    hayProductos = true;
+                    const subtotal = cantidad * producto.precio;
+                    total += subtotal;
+                    
+                    htmlResumen += 
+                        <div class="resumen-item">
+                            <span>${producto.nombre} x${cantidad}</span>
+                            <span>S/ ${subtotal.toFixed(2)}</span>
+                        </div>
+                    ;
+                }
+            });
+            
+            // Actualizar el DOM
+            const resumenDetalles = document.getElementById('resumen-detalles');
+            const resumenTotal = document.getElementById('resumen-total');
+            const totalPedidoElement = document.getElementById('total-pedido');
+            
+            if (hayProductos) {
+                resumenDetalles.innerHTML = htmlResumen;
+                resumenTotal.style.display = 'flex';
+                totalPedidoElement.textContent = total.toFixed(2);
+            } else {
+                resumenDetalles.innerHTML = '<p>Selecciona las cantidades de cada producto para ver tu pedido personalizado.</p>';
+                resumenTotal.style.display = 'none';
+            }
+        }
+        
+        // Asignar eventos a los botones de incremento/decremento en la sección de productos
+        document.querySelectorAll('#productos .contador-btn').forEach(boton => {
+            boton.addEventListener('click', function() {
+                const contenedor = this.closest('.producto-card');
+                if (!contenedor) return;
+                
+                const producto = contenedor.getAttribute('data-producto');
+                if (!producto) return;
+                
+                const esIncremento = this.classList.contains('increment');
+                actualizarContador(producto, esIncremento ? 1 : -1, 'productos');
+            });
+        });
+        
+        // Asignar eventos a los botones de incremento/decremento en la sección de pedidos
+        const eventosPedidos = [
+            {selector: '.decrement-brownie', producto: 'brownie', cambio: -1},
+            {selector: '.increment-brownie', producto: 'brownie', cambio: 1},
+            {selector: '.decrement-cupcake', producto: 'cupcake', cambio: -1},
+            {selector: '.increment-cupcake', producto: 'cupcake', cambio: 1},
+            {selector: '.decrement-galleta', producto: 'galleta', cambio: -1},
+            {selector: '.increment-galleta', producto: 'galleta', cambio: 1},
+            {selector: '.decrement-choco-mango', producto: 'choco_mango', cambio: -1},
+            {selector: '.increment-choco-mango', producto: 'choco_mango', cambio: 1},
+            {selector: '.decrement-choco-fresa', producto: 'choco_fresa', cambio: -1},
+            {selector: '.increment-choco-fresa', producto: 'choco_fresa', cambio: 1},
+            {selector: '.decrement-choco-platano', producto: 'choco_platano', cambio: -1},
+            {selector: '.increment-choco-platano', producto: 'choco_platano', cambio: 1},
+            {selector: '.decrement-choco-ciruela', producto: 'choco_ciruela', cambio: -1},
+            {selector: '.increment-choco-ciruela', producto: 'choco_ciruela', cambio: 1}
+        ];
+        
+        eventosPedidos.forEach(evento => {
+            const botones = document.querySelectorAll(evento.selector);
+            botones.forEach(boton => {
+                boton.addEventListener('click', () => {
+                    actualizarContador(evento.producto, evento.cambio, 'pedidos');
+                });
+            });
+        });
+        
+        // Función para mostrar modal de confirmación
+        function mostrarModalConfirmacion() {
+            let totalProductos = 0;
+            let mensajeHTML = '<div style="max-height: 300px; overflow-y: auto; padding-right: 10px;">';
+            mensajeHTML += '<p><strong>Resumen de tu pedido:</strong></p>';
+            
+            // Construir mensaje de resumen
+            const productosInfo = [
+                {id: 'brownie', nombre: 'Brownie de Avena', precio: precios.brownie},
+                {id: 'cupcake', nombre: 'Cupcake de Lúcuma', precio: precios.cupcake},
+                {id: 'galleta', nombre: 'Galleta Básica', precio: precios.galleta},
+                {id: 'choco_mango', nombre: 'Chocoteja de Mango', precio: precios.choco_mango},
+                {id: 'choco_fresa', nombre: 'Chocoteja de Fresa', precio: precios.choco_fresa},
+                {id: 'choco_platano', nombre: 'Chocoteja de Plátano', precio: precios.choco_platano},
+                {id: 'choco_ciruela', nombre: 'Chocoteja de Ciruela', precio: precios.choco_ciruela}
+            ];
+            
+            productosInfo.forEach(producto => {
+                const cantidad = cantidades[producto.id];
+                if (cantidad > 0) {
+                    totalProductos += cantidad;
+                    const subtotal = cantidad * producto.precio;
+                    
+                    mensajeHTML += 
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px dashed #ddd;">
+                            <span>${producto.nombre} x${cantidad}</span>
+                            <span>S/ ${subtotal.toFixed(2)}</span>
+                        </div>
+                    ;
+                }
+            });
+            
+            if (totalProductos === 0) {
+                alert("Por favor, selecciona al menos un producto antes de realizar tu pedido.");
+                return;
+            }
+            
+            const total = parseFloat(document.getElementById('total-pedido').textContent);
+            mensajeHTML += '</div>';
+            mensajeHTML += <div style="margin-top: 20px; padding-top: 15px; border-top: 2px solid var(--primary-color);">
+                <div style="display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold;">
+                    <span>Total:</span>
+                    <span>S/ ${total.toFixed(2)}</span>
+                </div>
+            </div>;
+            
+            document.getElementById('modal-contenido').innerHTML = mensajeHTML;
+            modalConfirmacion.style.display = 'flex';
+        }
+        
+        // Función para cerrar modal
+        function cerrarModal() {
+            modalConfirmacion.style.display = 'none';
+        }
+        
+        // Eventos para el modal
+        modalClose.addEventListener('click', cerrarModal);
+        btnCerrarModal.addEventListener('click', cerrarModal);
+        btnPedido.addEventListener('click', mostrarModalConfirmacion);
+        
+        // Cerrar modal al hacer clic fuera de él
+        modalConfirmacion.addEventListener('click', function(e) {
+            if (e.target === modalConfirmacion) {
+                cerrarModal();
+            }
+        });
+        
+        // Smooth scrolling para los enlaces del menú
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Cerrar menú móvil si está abierto
+                if (window.innerWidth <= 768) {
+                    mainNav.style.display = 'none';
+                }
+            });
+        });
+        
+        // Inicializar resumen
+        actualizarResumen();
+    </script>
+</body>
+</html>
